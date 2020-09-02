@@ -10,7 +10,6 @@ pipeline {
                 sh 'docker build --force-rm -t "$ECR_REGISTRY/$APP_REPO_NAME:latest" .'
                 sh 'docker image ls'
                 sh 'docker image prune -af'
-                // sh 'docker rmi "$ECR_REGISTRY/$APP_REPO_NAME:latest"'
                 sh 'docker image ls'
             }
         }
