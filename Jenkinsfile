@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Create ECR Repo') {
             steps {
-                sh 'aws ecr get-login-password --region us-east-1 && docker login --username AWS --password-stdin "$ECR_REGISTRY"'
+                sh 'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin "$ECR_REGISTRY"'
                 sh '''
                     aws ecr create-repository \
                         --repository-name "$APP_REPO_NAME" \
